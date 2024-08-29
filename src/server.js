@@ -66,8 +66,8 @@ app.post("/doces", (req,res) => {
     }
 
     guloseimas.push(novoDoce)
-    
-    return res.status(200).send(guloseimas)
+
+    return res.status(201).send(guloseimas)
 })
 app.get("/filmes", (req,res) => {
     return res.status(200).send(filmesMarcantes)
