@@ -9,8 +9,55 @@ const app = express()
 
 app.use(express.json())
 
+const guloseimas = [
+    {
+        id: 1, 
+        nome: "Trufa",
+        preco: 8.50,
+    },
+    {
+        id: 2,
+        nome: "Cupcake",
+        preco: 12.50,
+    },
+    {
+        id: 3,
+        nome: "Brownie",
+        preco: 7.50,
+    }
+]
+
+const filmesMarcantes = [
+    {
+        id: 1001,
+        titulo: "Rapunzel",
+        genero: "Animação",
+        emCartaz: false,
+    },
+    {
+        id: 1002,
+        titulo: "É assim que acaba",
+        genero: "Romance",
+        emCartaz: true,
+    },
+    {
+        id: 1003,
+        titulo: "Chuck- O boneco assassino",
+        genero: "Terror",
+        emCartaz: false,
+    }
+]
+
 app.get("/", (req,res) => {
     return res.status(200).send({ message: "Hello, World!" })
+})
+
+app.get("/doces", (req,res) => {
+    return res.status(200).send(guloseimas)
+})
+
+app.get("/filmes", (req,res) => {
+    return res.status(200).send(filmesMarcantes)
 })
 
 app.listen(port, () =>{
