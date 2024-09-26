@@ -4,17 +4,17 @@ const docesRoutes = Router()
 
 let guloseimas = [
     {
-        id: 1,
+        id: Number(Math.floor(Math.random()* 99)+ 1),
         nome: "Trufa",
         preco: 8.50,
     },
     {
-        id: 2,
+        id: Number(Math.floor(Math.random()* 99)+ 1),
         nome: "Cupcake",
         preco: 12.50,
     },
     {
-        id: 3,
+        id: Number(Math.floor(Math.random()* 99)+ 1),
         nome: "Brownie",
         preco: 7.50,
     }
@@ -30,9 +30,9 @@ docesRoutes.post("/", (req, res) => {
     const { nome, preco } = req.body
 
     const novoDoce = {
-        id: guloseimas.length + 1,
-        nome: nome,
-        preco: preco,
+        id: Number(Math.floor(Math.random()* 99)+ 1),
+        nome,
+        preco,
     }
 
     guloseimas.push(novoDoce)
@@ -44,13 +44,10 @@ docesRoutes.post("/", (req, res) => {
 docesRoutes.get("/:id", (req, res) => {
     const { id } = req.params
 
-
     //console.log(id)
-
     const guloseima = guloseimas.find((doce) => doce.id === Number(id))
 
     //console.log(guloseima)
-
     if (!guloseima) {
         return res.status(404).send({ message: "Guloseima não encontrada!" })
     }
@@ -65,7 +62,6 @@ docesRoutes.put("/:id", (req, res) => {
     const guloseima = guloseimas.find((doce) => doce.id === Number(id))
 
     //console.log(guloseima)
-
     if (!guloseima) {
         return res.status(404).send({ message: "Guloseima não encontrada!" })
     }
